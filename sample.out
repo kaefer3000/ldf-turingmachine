@@ -1,0 +1,178 @@
+
+============================================================
+=== TURING MACHINE THAT CHECKS FOR DIVISIBILITY BY THREE ===
+============================================================
+
+=== OVERWRITING data-retrieval.n3 FOR YOUR LDPC IMPLEMENTATION ===
+
+=== INITIALISING TAPE ===
++ curl -X PUT http://localhost:8080/ldbbc/p01 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p02> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p02 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p03> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p03 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "1" ; rdf:rest <p04> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p04 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "1" ; rdf:rest <p05> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p05 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "0" ; rdf:rest <p06> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p06 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p07> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p07 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p08> . ' -Hcontent-type:text/turtle
++ curl -X PUT http://localhost:8080/ldbbc/p08 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p09> . ' -Hcontent-type:text/turtle
+
+=== INITIALISING TURING MACHINE STATE ===
++ curl -X PUT http://localhost:8080/ldbbc/tm1 --data-binary ' @prefix tm: <http://www.example.org/turing-machine#> . <> tm:hasInitialPosition <p03> ; tm:hasCurrentPosition <p03> ; tm:hasCurrentState <q0> .' -Hcontent-type:text/turtle
+
+=== INITIALISING TURING MACHINE TRANSITION FUNCTION ===
++ curl -X PUT http://localhost:8080/ldbbc/tr1 --data-binary @divisible-by-3.ttl -Hcontent-type:text/turtle
+
+========================================================================
+=== INITIALISATION DONE. PERFORMING THE STEPS FOR THE TURING MACHINE ===
+========================================================================
+
+=== PERFORMING STEP ===
+[INFO] Setup done in 392 ms, starting processing...
+[INFO] GET http://localhost:8080/ldbbc/: OK, 200 in 108 ms
+[INFO] GET http://localhost:8080/ldbbc/p01: OK, 200 in 5 ms
+[INFO] GET http://localhost:8080/ldbbc/p03: OK, 200 in 8 ms
+[INFO] GET http://localhost:8080/ldbbc/p05: OK, 200 in 11 ms
+[INFO] GET http://localhost:8080/ldbbc/p07: OK, 200 in 16 ms
+[INFO] GET http://localhost:8080/ldbbc/p08: OK, 200 in 11 ms
+[INFO] GET http://localhost:8080/ldbbc/p02: OK, 200 in 19 ms
+[INFO] GET http://localhost:8080/ldbbc/p04: OK, 200 in 6 ms
+[INFO] GET http://localhost:8080/ldbbc/tm1: OK, 200 in 18 ms
+[INFO] GET http://localhost:8080/ldbbc/tr1: OK, 200 in 121 ms
+[INFO] GET http://localhost:8080/ldbbc/p06: OK, 200 in 9 ms
+[INFO] PUT http://localhost:8080/ldbbc/p03: OK, 204 in 21 ms
+[INFO] PUT http://localhost:8080/ldbbc/tm1: OK, 204 in 16 ms
+[INFO] Elapsed time: 302 ms, 11 input origins, 16.776 bytes, 76 base triples, -1 derived triples, 2 output origins, 1.246 bytes, 5 triples
+[INFO] InputQueue distinct size: 11, BaseTripleQueue distinct size: -1, DerivedTripleQueue distinct size -1, OutputQueue distinct size 2
+[INFO] JoinBindings size: 143, JoinBindings distinct size: 0
+
+=== CURRENT TURING MACHINE STATE ===
+?turingmachine ?currentPosition ?currentTuringMachineState .
+<http://localhost:8080/ldbbc/tm1> <http://localhost:8080/ldbbc/p04> <http://localhost:8080/ldbbc/q1> .
+
+=== CURRENT TURING MACHINE TAPE STATE ===
+?tapePosition ?tapeValueAtPosition ?nextTapePosition .
+<http://localhost:8080/ldbbc/p01> "#" <http://localhost:8080/ldbbc/p02> .
+<http://localhost:8080/ldbbc/p02> "#" <http://localhost:8080/ldbbc/p03> .
+<http://localhost:8080/ldbbc/p03> "1" <http://localhost:8080/ldbbc/p04> .
+<http://localhost:8080/ldbbc/p04> "1" <http://localhost:8080/ldbbc/p05> .
+<http://localhost:8080/ldbbc/p05> "0" <http://localhost:8080/ldbbc/p06> .
+<http://localhost:8080/ldbbc/p06> "#" <http://localhost:8080/ldbbc/p07> .
+<http://localhost:8080/ldbbc/p07> "#" <http://localhost:8080/ldbbc/p08> .
+<http://localhost:8080/ldbbc/p08> "#" <http://localhost:8080/ldbbc/p09> .
+
+// Check Turing Machine state above.
+// If state is q<number>=calculation still in progress, otherwise you see acceptance or the remainder of the division.
+-----> Press any key to continue with the next step or Ctrl+C to exit...
+
+=== PERFORMING STEP ===
+[INFO] Setup done in 398 ms, starting processing...
+[INFO] GET http://localhost:8080/ldbbc/: OK, 200 in 97 ms
+[INFO] GET http://localhost:8080/ldbbc/p07: OK, 200 in 10 ms
+[INFO] GET http://localhost:8080/ldbbc/tr1: OK, 200 in 125 ms
+[INFO] GET http://localhost:8080/ldbbc/p03: OK, 200 in 14 ms
+[INFO] GET http://localhost:8080/ldbbc/p04: OK, 200 in 4 ms
+[INFO] GET http://localhost:8080/ldbbc/p06: OK, 200 in 6 ms
+[INFO] GET http://localhost:8080/ldbbc/p02: OK, 200 in 32 ms
+[INFO] GET http://localhost:8080/ldbbc/p08: OK, 200 in 21 ms
+[INFO] GET http://localhost:8080/ldbbc/tm1: OK, 200 in 16 ms
+[INFO] GET http://localhost:8080/ldbbc/p05: OK, 200 in 14 ms
+[INFO] GET http://localhost:8080/ldbbc/p01: OK, 200 in 6 ms
+[INFO] PUT http://localhost:8080/ldbbc/p04: OK, 204 in 14 ms
+[INFO] PUT http://localhost:8080/ldbbc/tm1: OK, 204 in 44 ms
+[INFO] Elapsed time: 352 ms, 11 input origins, 16.782 bytes, 76 base triples, -1 derived triples, 2 output origins, 1.246 bytes, 5 triples
+[INFO] InputQueue distinct size: 11, BaseTripleQueue distinct size: -1, DerivedTripleQueue distinct size -1, OutputQueue distinct size 2
+[INFO] JoinBindings size: 143, JoinBindings distinct size: 0
+
+=== CURRENT TURING MACHINE STATE ===
+?turingmachine ?currentPosition ?currentTuringMachineState .
+<http://localhost:8080/ldbbc/tm1> <http://localhost:8080/ldbbc/p05> <http://localhost:8080/ldbbc/q0> .
+
+=== CURRENT TURING MACHINE TAPE STATE ===
+?tapePosition ?tapeValueAtPosition ?nextTapePosition .
+<http://localhost:8080/ldbbc/p01> "#" <http://localhost:8080/ldbbc/p02> .
+<http://localhost:8080/ldbbc/p02> "#" <http://localhost:8080/ldbbc/p03> .
+<http://localhost:8080/ldbbc/p03> "1" <http://localhost:8080/ldbbc/p04> .
+<http://localhost:8080/ldbbc/p04> "1" <http://localhost:8080/ldbbc/p05> .
+<http://localhost:8080/ldbbc/p05> "0" <http://localhost:8080/ldbbc/p06> .
+<http://localhost:8080/ldbbc/p06> "#" <http://localhost:8080/ldbbc/p07> .
+<http://localhost:8080/ldbbc/p07> "#" <http://localhost:8080/ldbbc/p08> .
+<http://localhost:8080/ldbbc/p08> "#" <http://localhost:8080/ldbbc/p09> .
+
+// Check Turing Machine state above.
+// If state is q<number>=calculation still in progress, otherwise you see acceptance or the remainder of the division.
+-----> Press any key to continue with the next step or Ctrl+C to exit...
+
+=== PERFORMING STEP ===
+[INFO] Setup done in 410 ms, starting processing...
+[INFO] GET http://localhost:8080/ldbbc/: OK, 200 in 108 ms
+[INFO] GET http://localhost:8080/ldbbc/p03: OK, 200 in 7 ms
+[INFO] GET http://localhost:8080/ldbbc/p01: OK, 200 in 15 ms
+[INFO] GET http://localhost:8080/ldbbc/p04: OK, 200 in 19 ms
+[INFO] GET http://localhost:8080/ldbbc/p02: OK, 200 in 13 ms
+[INFO] GET http://localhost:8080/ldbbc/tm1: OK, 200 in 25 ms
+[INFO] GET http://localhost:8080/ldbbc/p05: OK, 200 in 14 ms
+[INFO] GET http://localhost:8080/ldbbc/p07: OK, 200 in 20 ms
+[INFO] GET http://localhost:8080/ldbbc/tr1: OK, 200 in 141 ms
+[INFO] GET http://localhost:8080/ldbbc/p06: OK, 200 in 12 ms
+[INFO] PUT http://localhost:8080/ldbbc/tm1: OK, 204 in 40 ms
+[INFO] GET http://localhost:8080/ldbbc/p08: OK, 200 in 11 ms
+[INFO] PUT http://localhost:8080/ldbbc/p05: OK, 204 in 19 ms
+[INFO] Elapsed time: 371 ms, 11 input origins, 16.734 bytes, 76 base triples, -1 derived triples, 2 output origins, 1.243 bytes, 5 triples
+[INFO] InputQueue distinct size: 11, BaseTripleQueue distinct size: -1, DerivedTripleQueue distinct size -1, OutputQueue distinct size 2
+[INFO] JoinBindings size: 143, JoinBindings distinct size: 0
+
+=== CURRENT TURING MACHINE STATE ===
+?turingmachine ?currentPosition ?currentTuringMachineState .
+<http://localhost:8080/ldbbc/tm1> <http://localhost:8080/ldbbc/p06> <http://localhost:8080/ldbbc/q0> .
+
+=== CURRENT TURING MACHINE TAPE STATE ===
+?tapePosition ?tapeValueAtPosition ?nextTapePosition .
+<http://localhost:8080/ldbbc/p01> "#" <http://localhost:8080/ldbbc/p02> .
+<http://localhost:8080/ldbbc/p02> "#" <http://localhost:8080/ldbbc/p03> .
+<http://localhost:8080/ldbbc/p03> "1" <http://localhost:8080/ldbbc/p04> .
+<http://localhost:8080/ldbbc/p04> "1" <http://localhost:8080/ldbbc/p05> .
+<http://localhost:8080/ldbbc/p05> "0" <http://localhost:8080/ldbbc/p06> .
+<http://localhost:8080/ldbbc/p06> "#" <http://localhost:8080/ldbbc/p07> .
+<http://localhost:8080/ldbbc/p07> "#" <http://localhost:8080/ldbbc/p08> .
+<http://localhost:8080/ldbbc/p08> "#" <http://localhost:8080/ldbbc/p09> .
+
+// Check Turing Machine state above.
+// If state is q<number>=calculation still in progress, otherwise you see acceptance or the remainder of the division.
+-----> Press any key to continue with the next step or Ctrl+C to exit...
+
+=== PERFORMING STEP ===
+[INFO] Setup done in 387 ms, starting processing...
+[INFO] GET http://localhost:8080/ldbbc/: OK, 200 in 117 ms
+[INFO] GET http://localhost:8080/ldbbc/p03: OK, 200 in 11 ms
+[INFO] GET http://localhost:8080/ldbbc/p01: OK, 200 in 23 ms
+[INFO] GET http://localhost:8080/ldbbc/p02: OK, 200 in 5 ms
+[INFO] GET http://localhost:8080/ldbbc/p04: OK, 200 in 8 ms
+[INFO] GET http://localhost:8080/ldbbc/p06: OK, 200 in 17 ms
+[INFO] GET http://localhost:8080/ldbbc/p08: OK, 200 in 15 ms
+[INFO] GET http://localhost:8080/ldbbc/tm1: OK, 200 in 12 ms
+[INFO] GET http://localhost:8080/ldbbc/p05: OK, 200 in 5 ms
+[INFO] GET http://localhost:8080/ldbbc/tr1: OK, 200 in 116 ms
+[INFO] GET http://localhost:8080/ldbbc/p07: OK, 200 in 7 ms
+[INFO] PUT http://localhost:8080/ldbbc/p06: OK, 204 in 39 ms
+[INFO] PUT http://localhost:8080/ldbbc/tm1: OK, 204 in 24 ms
+[INFO] Elapsed time: 343 ms, 11 input origins, 16.770 bytes, 76 base triples, -1 derived triples, 2 output origins, 1.253 bytes, 5 triples
+[INFO] InputQueue distinct size: 11, BaseTripleQueue distinct size: -1, DerivedTripleQueue distinct size -1, OutputQueue distinct size 2
+[INFO] JoinBindings size: 143, JoinBindings distinct size: 0
+
+=== CURRENT TURING MACHINE STATE ===
+?turingmachine ?currentPosition ?currentTuringMachineState .
+<http://localhost:8080/ldbbc/tm1> <http://localhost:8080/ldbbc/p07> <http://localhost:8080/ldbbc/Accept> .
+
+=== CURRENT TURING MACHINE TAPE STATE ===
+?tapePosition ?tapeValueAtPosition ?nextTapePosition .
+<http://localhost:8080/ldbbc/p01> "#" <http://localhost:8080/ldbbc/p02> .
+<http://localhost:8080/ldbbc/p02> "#" <http://localhost:8080/ldbbc/p03> .
+<http://localhost:8080/ldbbc/p03> "1" <http://localhost:8080/ldbbc/p04> .
+<http://localhost:8080/ldbbc/p04> "1" <http://localhost:8080/ldbbc/p05> .
+<http://localhost:8080/ldbbc/p05> "0" <http://localhost:8080/ldbbc/p06> .
+<http://localhost:8080/ldbbc/p06> "#" <http://localhost:8080/ldbbc/p07> .
+<http://localhost:8080/ldbbc/p07> "#" <http://localhost:8080/ldbbc/p08> .
+<http://localhost:8080/ldbbc/p08> "#" <http://localhost:8080/ldbbc/p09> .
+
+// Check Turing Machine state above.
+// If state is q<number>=calculation still in progress, otherwise you see acceptance or the remainder of the division.
+-----> Press any key to continue with the next step or Ctrl+C to exit...
