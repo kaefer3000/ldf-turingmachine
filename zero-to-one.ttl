@@ -1,5 +1,7 @@
 @prefix tm:  <http://www.example.org/turing-machine#> .
 
+# Going left, turn zeroes into ones.
+
 <> tm:hasCurrentTapeSymbol "0" ;
      tm:hasCurrentState <A> ;
      tm:hasNextState <A> ;
