@@ -3,7 +3,7 @@
 # The initial tape position has to be set to the place that represents highest power of 2.
 #
 # Author: Tobias Käfer
-# inspired by https://turingmachinesimulator.com/
+# inspired by Martin Ugarte's http://turingmachinesimulator.com/
 #
 
 @prefix tm:  <http://www.example.org/turing-machine#> .
