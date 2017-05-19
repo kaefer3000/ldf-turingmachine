@@ -2,7 +2,11 @@
 
 ## tl; dr
 
-In [sample.out](sample.out) you find the output of the Turing Machine implementation programmed to check 6 for divisibility by 3. In the last iteration, the accepting state has been reached.
+In [sample.out](sample.out) you find the output of the Turing Machine implementation programmed to check 6 for divisibility by 3. In the last iteration, the accepting state has been reached. The transition function for divisibility by 3 is given  in [divisible-by-3.ttl](divisible-by-3.ttl). The rules to process Turing Machine specifications are in [tmrules.n3](tmrules.n3).
+
+## Description
+
+The Turing Machine consists in a tape, the transition function, and information about the current state of the machine. Those are all retrievable as Linked Data and get processed by generic rules ([tmrules.n3](tmrules.n3)). Linked Data-Fu is then programmed to retrieve all the data and act according to the rules. As it takes some effort to upload the data for the tape, the transition function, and machine state, and to run Linked Data-Fu step-wise while creating interesting and clear output to the user, we provide demonstration scripts that automate the proeces for some examples.
 
 ## Steps to try it yourself:
 * Obtain requirements
