@@ -1,5 +1,7 @@
 @prefix tm:  <http://www.example.org/turing-machine#> .
 
+# inspired by https://turingmachinesimulator.com/
+
 [] tm:hasCurrentTapeSymbol "0" ;
      tm:hasCurrentState <q0> ;
      tm:hasNextState <q0> ;
