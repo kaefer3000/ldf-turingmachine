@@ -2,7 +2,7 @@
 
 ## tl; dr
 
-In [sample.out](sample.out) you find the output of the Turing Machine implementation programmed to check 6 for divisibility by 3.
+In [sample.out](sample.out) you find the output of the Turing Machine implementation programmed to check 6 for divisibility by 3. In the last iteration, the accepting state has been reached.
 
 ## Steps to try it yourself:
 * Obtain requirements
