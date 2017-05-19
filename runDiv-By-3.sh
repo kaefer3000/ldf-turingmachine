@@ -13,7 +13,7 @@ echo === TURING MACHINE THAT CHECKS FOR DIVISIBILITY BY THREE ===
 echo ============================================================
 
 # Cleanup
-curl -X DELETE http://localhost:8080/rwldresources/ || { echo an error occurred related to the web resources maintaining tape, state, and program ; exit 1 ; }
+curl --fail -X DELETE http://localhost:8080/rwldresources/ || { echo an error occurred related to the web resources maintaining tape, state, and program ; exit 1 ; }
 
 echo
 echo === INITIALISING TAPE ===

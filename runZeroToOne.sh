@@ -13,7 +13,7 @@ echo === TURING MACHINE THAT STARTS SOMEWHERE ON THE TAPE AND TURNS ZEROES TO ON
 echo ======================================================================================================
 
 # Cleanup
-curl -X DELETE http://localhost:8080/rwldresources/ || { echo an error occurred related to the web resources maintaining tape, state, and program ; exit 1 ; }
+curl --fail -X DELETE http://localhost:8080/rwldresources/ || { echo an error occurred related to the web resources maintaining tape, state, and program ; exit 1 ; }
 
 echo
 echo === INITIALISING TAPE ===
