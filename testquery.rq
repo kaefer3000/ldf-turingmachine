@@ -1,0 +1,18 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX tm:  <http://www.example.org/turing-machine#> 
+
+
+SELECT * WHERE
+{ ?tm tm:hasInitialPosition ?initPos ;
+      tm:hasCurrentPosition ?currPos ;
+      tm:hasCurrentState    ?currState . 
+
+  ?currPos rdf:first ?currTapeSymbol ;
+    rdf:rest ?currNext .
+  ?currPos rdf:rest ?nextPos .
+
+  ?tr tm:hasCurrentTapeSymbol ?currTapeSymbol ;
+      tm:hasCurrentState ?currState ;
+      tm:hasNextState ?nextState ;
+      tm:hasDisplacement tm:L ;
+      tm:hasWriteSymbol ?writeSymbol . }

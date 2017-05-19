@@ -1,0 +1,44 @@
+@prefix tm:  <http://www.example.org/turing-machine#> .
+
+[] tm:hasCurrentTapeSymbol "0" ;
+     tm:hasCurrentState <q0> ;
+     tm:hasNextState <q0> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "0" .
+
+[] tm:hasCurrentTapeSymbol "1" ;
+     tm:hasCurrentState <q0> ;
+     tm:hasNextState <q1> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "1" .
+
+[] tm:hasCurrentTapeSymbol "0" ;
+     tm:hasCurrentState <q1> ;
+     tm:hasNextState <q2> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "0" .
+
+[] tm:hasCurrentTapeSymbol "1" ;
+     tm:hasCurrentState <q1> ;
+     tm:hasNextState <q0> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "1" .
+
+[] tm:hasCurrentTapeSymbol "0" ;
+     tm:hasCurrentState <q2> ;
+     tm:hasNextState <q1> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "0" .
+
+[] tm:hasCurrentTapeSymbol "1" ;
+     tm:hasCurrentState <q2> ;
+     tm:hasNextState <q2> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "1" .
+
+[] tm:hasCurrentTapeSymbol "#" ;
+     tm:hasCurrentState <q0> ;
+     tm:hasNextState <qAccept> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "#" .
+

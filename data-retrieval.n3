@@ -1,0 +1,7 @@
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix http_m: <http://www.w3.org/2011/http-methods#>.
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+{ _:h http:mthd http_m:GET ; http:requestURI <http://tok450s.lan:8080/rwldresources/> . } 
+
+{ <http://tok450s.lan:8080/rwldresources/> ldp:contains ?y . } => { [] http:mthd http_m:GET; http:requestURI ?y . } .

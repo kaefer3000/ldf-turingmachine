@@ -1,0 +1,7 @@
+@prefix tm:  <http://www.example.org/turing-machine#> .
+
+<> tm:hasCurrentTapeSymbol "0" ;
+     tm:hasCurrentState <A> ;
+     tm:hasNextState <A> ;
+     tm:hasDisplacement tm:L ;
+     tm:hasWriteSymbol "1" .
