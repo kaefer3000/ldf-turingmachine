@@ -1,6 +1,10 @@
 # An implementation of a Turing Machine using Linked Data-Fu and a Linked Data Platform Container
 
-Steps to test:
+## tl; dr
+
+In [sample.out](sample.out) you find the output of the Turing Machine implementation programmed to check 6 for divisibility by 3.
+
+## Steps to try it yourself:
 * Obtain requirements
   * Get a LDPC. Tested with my [LDBBC 0.0.5](https://github.com/kaefer3000/ldbbc/releases/tag/0.0.5)
   * Get Linked Data-Fu. Tested with [Linked Data-Fu 0.9.11](http://linked-data-fu.github.io/releases/0.9.11/)
