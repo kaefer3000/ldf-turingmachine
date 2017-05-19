@@ -6,7 +6,7 @@ In [sample.out](sample.out) you find the output of the Turing Machine implementa
 
 ## Description
 
-The Turing Machine consists in a tape, the transition function, and information about the current state of the machine (the tape alphabet, state set etc. are given implicitly by this data). This data is all retrievable as Linked Data and get processed by generic rules ([tmrules.n3](tmrules.n3)). Linked Data-Fu is programmed to retrieve all the data and act according to the rules. As it takes some effort to upload the data for the tape, the transition function, and machine state, and to run Linked Data-Fu step-wise while creating interesting and clear output to the user, we provide demonstration scripts that automate the proeces for some examples.
+The Turing Machine consists in data about the tape, the transition function, and the current state of the machine (the tape alphabet, state set etc. are given implicitly by this data). This data is all retrievable as Linked Data and get processed by generic rules ([tmrules.n3](tmrules.n3)). Linked Data-Fu is programmed to retrieve all the data and act according to the rules. As it takes some effort to upload the data for the tape, the transition function, and machine state, and to run Linked Data-Fu step-wise while creating interesting and clear output to the user, we provide demonstration scripts that automate the proeces for some examples.
 
 ## Steps to try it yourself:
 * Obtain requirements
