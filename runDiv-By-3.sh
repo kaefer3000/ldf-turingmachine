@@ -1,33 +1,79 @@
-#!/bin/sh
+#!/bin/bash
 
-LDF=~/workspace/linked-data-fu/linked-data-fu-standalone/target/linked-data-fu-standalone-0.9.11-SNAPSHOT-bin/linked-data-fu-0.9.11-SNAPSHOT/bin/ldfu.sh
+LDF=~/workspace/linked-data-fu/bin/ldfu.sh
 
 if [ ! -f $LDF ]; then
+  echo Linked Data-Fu executable not found
   exit 1
 fi
 
+echo
+echo ============================================================
+echo === TURING MACHINE THAT CHECKS FOR DIVISIBILITY BY THREE ===
+echo ============================================================
+
 # Cleanup
-curl -X DELETE localhost:8080/rwldresources/ || exit 1
+curl -X DELETE http://localhost:8080/rwldresources/ || { echo an error occurred related to the web resources maintaining tape, state, and program ; exit 1 ; }
 
+echo
+echo === INITIALISING TAPE ===
+
+set -x
 # Tape initialisation
-curl -X PUT localhost:8080/rwldresources/p1  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p2>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p2  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p3>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p3  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "1" ; rdf:rest <p4>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p4  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "0" ; rdf:rest <p5>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p5  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "0" ; rdf:rest <p6>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p7  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p8>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p8  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p9>  . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p9  --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p10> . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p10 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p11> . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p11 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p12> . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p12 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p13> . ' -Hcontent-type:text/turtle
-curl -X PUT localhost:8080/rwldresources/p13 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p14> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p01 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p02> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p02 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p03> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p03 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "1" ; rdf:rest <p04> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p04 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "0" ; rdf:rest <p05> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p05 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "0" ; rdf:rest <p06> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p06 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p07> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p07 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p08> . ' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/p08 --data-binary ' @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . <> rdf:first "#" ; rdf:rest <p09> . ' -Hcontent-type:text/turtle
 
+{ set +x; } 2>/dev/null
+
+echo
+echo === INITIALISING TURING MACHINE STATE ===
+
+set -x
 # State initialisieren
-curl -X PUT localhost:8080/rwldresources/tm1 --data-binary ' @prefix tm: <http://www.example.org/turing-machine#> . <> tm:hasInitialPosition <p3> ; tm:hasCurrentPosition <p3> ; tm:hasCurrentState <q0> .' -Hcontent-type:text/turtle
+curl -X PUT localhost:8080/rwldresources/tm1 --data-binary ' @prefix tm: <http://www.example.org/turing-machine#> . <> tm:hasInitialPosition <p03> ; tm:hasCurrentPosition <p03> ; tm:hasCurrentState <q0> .' -Hcontent-type:text/turtle
+{ set +x; } 2>/dev/null
 
+echo
+echo === INITIALISING TURING MACHINE TRANSITION FUNCTION ===
+
+set -x
 # Transition function initialisieren
-
 curl -X PUT localhost:8080/rwldresources/tr1 --data-binary @divisible-by-3.ttl -Hcontent-type:text/turtle
+{ set +x; } 2>/dev/null
 
-echo $LDF -p data-retrieval.n3 -p tmrules.n3
+echo
+echo ========================================================================
+echo === INITIALISATION DONE. PERFORMING THE STEPS FOR THE TURING MACHINE ===
+echo ========================================================================
+
+# Loop the Turing machine's stepwise execution
+while true
+do
+
+echo
+echo === PERFORMING STEP ===
+# Performing the actual step
+$LDF -p data-retrieval.n3 -p tmrules.n3
+
+echo
+echo === CURRENT TURING MACHINE STATE ===
+# Outputting the current machine state
+$LDF -p data-retrieval.n3 -q tmquery.rq - 2>/dev/null
+
+echo
+echo === CURRENT TURING MACHINE TAPE STATE ===
+# Outputting the current tape state
+$LDF -p data-retrieval.n3 -q tapequery.rq - 2>/dev/null | (read -r; printf "%s\n" "$REPLY"; sort -u)
+
+echo
+
+read -n1 -rsp $'// Check Turing Machine state above.\n// If state is q<number>=calculation still in progress, otherwise you see acceptance or the remainder of the division.\n-----> Press any key to continue with the next step or Ctrl+C to exit...\n'
+
+done
+

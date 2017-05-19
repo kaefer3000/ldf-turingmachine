@@ -40,7 +40,19 @@
 
 [] tm:hasCurrentTapeSymbol "#" ;
      tm:hasCurrentState <q0> ;
-     tm:hasNextState <qAccept> ;
+     tm:hasNextState <Accept> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "#" .
+
+[] tm:hasCurrentTapeSymbol "#" ;
+     tm:hasCurrentState <q1> ;
+     tm:hasNextState <RemainderOf1> ;
+     tm:hasDisplacement tm:R ;
+     tm:hasWriteSymbol "#" .
+
+[] tm:hasCurrentTapeSymbol "#" ;
+     tm:hasCurrentState <q2> ;
+     tm:hasNextState <RemainderOf2> ;
      tm:hasDisplacement tm:R ;
      tm:hasWriteSymbol "#" .
 
