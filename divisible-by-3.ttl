@@ -1,6 +1,12 @@
-@prefix tm:  <http://www.example.org/turing-machine#> .
-
+#
+# Checks binary numbers for divisibility by three.
+# The initial tape position has to be set to the place that represents highest power of 2.
+#
+# Author: Tobias Käfer
 # inspired by https://turingmachinesimulator.com/
+#
+
+@prefix tm:  <http://www.example.org/turing-machine#> .
 
 [] tm:hasCurrentTapeSymbol "0" ;
      tm:hasCurrentState <q0> ;

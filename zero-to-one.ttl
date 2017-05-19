@@ -1,6 +1,10 @@
-@prefix tm:  <http://www.example.org/turing-machine#> .
-
+#
 # Going left, turn zeroes into ones.
+#
+# Author: Tobias Käfer
+#
+
+@prefix tm:  <http://www.example.org/turing-machine#> .
 
 <> tm:hasCurrentTapeSymbol "0" ;
      tm:hasCurrentState <A> ;
